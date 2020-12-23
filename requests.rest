@@ -1,0 +1,27 @@
+### Login and get tokens
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+  "username": "utwoo"
+}
+
+### Use access token to access
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXR3b28iLCJpYXQiOjE2MDg2OTQ0NDcsImV4cCI6MTYwODY5NDQ2N30.o0BrDz_eEfwk-JnS2hk_Q3IIBYXcgd8h9mBYKlLi1F4
+
+### Use refresh token to get new access token
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXR3b28iLCJpYXQiOjE2MDg2OTQzNzZ9.DkFO7Ikip5LLXa8rc72K2tuu8JzWunszPWn918qh1Dg"
+}
+
+### Delete refresh token
+DELETE http://localhost:4000/logout
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXR3b28iLCJpYXQiOjE2MDg2OTQzNzZ9.DkFO7Ikip5LLXa8rc72K2tuu8JzWunszPWn918qh1Dg"
+}
